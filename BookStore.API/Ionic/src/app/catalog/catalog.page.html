@@ -1,0 +1,91 @@
+<ion-content>
+    <div class="content-separator"></div>
+    <ion-grid>
+        <ion-row style="font-family: 'Oswald'">
+            <ion-col size-xs="12" size-lg="2" class="catalog-title">Catalog</ion-col>
+            <ion-col size-xs="5" size-lg="2" offset-lg="6" class="filter-select">
+                <ion-select placeholder="Currency">
+                    <ion-select-option value="aud">AUD</ion-select-option>
+                    <ion-select-option value="byn">BYN</ion-select-option>
+                    <ion-select-option value="eur">EUR</ion-select-option>
+                    <ion-select-option value="grp">GPP</ion-select-option>
+                    <ion-select-option value="pln">PLN</ion-select-option>
+                    <ion-select-option value="uan">UAN</ion-select-option>
+                </ion-select>
+            </ion-col>
+            <ion-col size-xs="6" size-lg="1" class="filter-select">
+                <ion-select placeholder="Sort By">
+                    <ion-select-option value="asc">Price: Low to High</ion-select-option>
+                    <ion-select-option value="desc">Price: High to Low</ion-select-option>
+                </ion-select>
+            </ion-col>
+        </ion-row>
+        <ion-row>
+            <ion-col size-lg="2" size-md="12" size-xs="12">
+                <ion-row>
+                    <ion-col class="filter-panel">
+                        <ion-row>
+                            <ion-col>
+                                <h4 style="font-family: 'Oswald'">Category</h4>
+                                <div style="height: 2vh"></div>
+                            </ion-col>
+                        </ion-row>
+                        <ion-row>
+                            <ion-col>
+                                <ion-list style="font-family: 'Poppins'">
+                                    <ion-item>
+                                        <ion-checkbox [(ngModel)]="booksFilter" color="primary"></ion-checkbox>
+                                        <ion-label>Books</ion-label>
+                                    </ion-item>
+                                    <ion-item>
+                                        <ion-checkbox [(ngModel)]="newspapersFilter" color="primary"></ion-checkbox>
+                                        <ion-label>Newspapers</ion-label>
+                                    </ion-item>
+                                    <ion-item>
+                                        <ion-checkbox [(ngModel)]="magazineFilter" color="primary"></ion-checkbox>
+                                        <ion-label>Magazines</ion-label>
+                                    </ion-item>
+                                </ion-list>
+                            </ion-col>
+                        </ion-row>
+                        <ion-row>
+                            <ion-col>
+                                <div style="height: 4vh"></div>
+                                <h4 style="font-family: 'Oswald'">Price, $</h4>
+                            </ion-col>
+                        </ion-row>
+                        <ion-row>
+                            <ion-col style="display: flex; align-items: center">
+                                <input type="number" [(ngModel)]="inputSpeedRange[0]" style="width: 30%" />
+                                <div style="width: 5%"></div>
+                                <input type="number" [(ngModel)]="inputSpeedRange[1]" style="width: 30%" />
+                                <div style="width: 2%"></div>
+                                <ion-label>$</ion-label>
+                                <div style="width: 5%"></div>
+                                <ion-button (click)="filterBooks()" tab="catalog" color="dark" style="width: 5%">
+                                    Ok
+                                </ion-button>
+                            </ion-col>
+                        </ion-row>
+                        <ion-row>
+                            <ion-col>
+                                <nouislider style="width: 95%" [connect]="true" [min]="0" [max]="1500" [(ngModel)]="inputSpeedRange"></nouislider>
+                            </ion-col>
+                        </ion-row>
+                    </ion-col>
+                </ion-row>
+            </ion-col>
+            <ion-col size-lg="9.5">
+                <ion-row>
+                    <ion-col size-xs="12" offset-xs="0" size-md="5" offset-md="1" offset-lg="1" size-lg="3" class="book-item" *ngFor="let bookItem of mockedBookItems">
+                        <img src="{{bookItem.imgUrl}}" />
+                        <div class="separator"></div>
+                        <div class="book-title">{{bookItem.title}}</div>
+                        <div class="book-author">{{bookItem.author}}</div>
+                        <div class="book-price">${{bookItem.price}}</div>
+                    </ion-col>
+                </ion-row>
+            </ion-col>
+        </ion-row>
+    </ion-grid>
+</ion-content>

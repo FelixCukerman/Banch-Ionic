@@ -1,0 +1,28 @@
+<ion-app>
+    <ion-header style="color: white">
+        <ion-toolbar color="mainheader">
+            <ion-title>
+                EBook
+            </ion-title>
+            <ion-buttons slot="primary">
+                <ion-button class="b-login" tab="catalog" color="white">
+                    Log In
+                </ion-button>
+                <ion-button color="white">
+                    <ion-icon slot="icon-only" name="person"></ion-icon>
+                </ion-button>
+                <ion-button color="white">
+                    <ion-icon slot="icon-only" name="basket"></ion-icon>
+                </ion-button>
+            </ion-buttons>
+        </ion-toolbar>
+
+        <ion-toolbar color="navheader">
+            <ion-title class="nav-title" slot="start">
+                Store / Catalog <!--TODO: Hardcode-->
+            </ion-title>
+            <ion-searchbar class="i-search" slot="end" showCancelButton="focus"></ion-searchbar>
+        </ion-toolbar>
+    </ion-header>
+    <ion-router-outlet></ion-router-outlet>
+</ion-app>

@@ -1,0 +1,87 @@
+.welcome-card img {
+  max-height: 35vh;
+  overflow: hidden;
+}
+
+.content-separator {
+    height: 20vh;
+}
+
+.separator {
+    height: 7vh;
+}
+
+ion-grid {
+    max-width: 90%;
+}
+
+.separate-row {
+    height: 40px !important;
+}
+
+.catalog-title {
+    font-family: 'Oswald', sans-serif;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 1.8em;
+    color: #4d4d4d;
+    text-transform: uppercase;
+}
+
+.filter-panel {
+    background-color: #f8f8f8;
+    padding: 5%;
+    display: block;
+}
+
+.book-item {
+    background-color: #f8f8f8;
+    margin-bottom: 7%;
+    padding: 5%;
+    padding-bottom: 2%;
+}
+
+.book-item img {
+    max-width: 90%;
+    height: auto;
+}
+
+.book-title {
+    font-family: 'Oswald', sans-serif;
+    font-style: italic;
+    font-weight: 800;
+    font-size: 1.5em;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 3%;
+}
+
+.book-author {
+    font-family: 'Oswald', sans-serif;
+    font-size: 1em;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 3%;
+}
+
+.book-price {
+    color: orange;
+    font-family: 'Oswald', sans-serif;
+    font-weight: 500;
+    font-size: 1.5em;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 3%;
+}
+
+.filter-select {
+    display: flex;
+    justify-content: flex-end;
+}
+
+ion-label {
+    font-family: 'Poppins' !important;
+}
