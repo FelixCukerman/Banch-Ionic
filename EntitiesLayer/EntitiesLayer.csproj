@@ -1,0 +1,9 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp2.1</TargetFramework>
+    <AssemblyName>BookStore.EL</AssemblyName>
+    <RootNamespace>BookStore.EL</RootNamespace>
+  </PropertyGroup>
+
+</Project>

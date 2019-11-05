@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Work\\BookStore\\BookStore.API\\BookStore.API\\BookStore.API.csproj": {}
+    "C:\\Work\\Banch-Ionic\\BookStore.API\\BookStore.API.csproj": {}
   },
   "projects": {
-    "C:\\Work\\BookStore\\BookStore.API\\BookStore.API\\BookStore.API.csproj": {
+    "C:\\Work\\Banch-Ionic\\BookStore.API\\BookStore.API.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Work\\BookStore\\BookStore.API\\BookStore.API\\BookStore.API.csproj",
+        "projectUniqueName": "C:\\Work\\Banch-Ionic\\BookStore.API\\BookStore.API.csproj",
         "projectName": "BookStore.API",
-        "projectPath": "C:\\Work\\BookStore\\BookStore.API\\BookStore.API\\BookStore.API.csproj",
+        "projectPath": "C:\\Work\\Banch-Ionic\\BookStore.API\\BookStore.API.csproj",
         "packagesPath": "C:\\Users\\Anuitex\\.nuget\\packages\\",
-        "outputPath": "C:\\Work\\BookStore\\BookStore.API\\BookStore.API\\obj\\",
+        "outputPath": "C:\\Work\\Banch-Ionic\\BookStore.API\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
