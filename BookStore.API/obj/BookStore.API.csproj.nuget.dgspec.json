@@ -29,6 +29,233 @@
         },
         "frameworks": {
           "netcoreapp2.2": {
+            "projectReferences": {
+              "C:\\Work\\Banch-Ionic\\BookStore.BLL\\BookStore.BLL.csproj": {
+                "projectPath": "C:\\Work\\Banch-Ionic\\BookStore.BLL\\BookStore.BLL.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "netcoreapp2.2": {
+          "dependencies": {
+            "AutoMapper": {
+              "target": "Package",
+              "version": "[6.2.2, )"
+            },
+            "AutoMapper.Extensions.Microsoft.DependencyInjection": {
+              "target": "Package",
+              "version": "[3.2.0, )"
+            },
+            "Microsoft.AspNetCore.App": {
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[2.2.0, )",
+              "autoReferenced": true
+            },
+            "Microsoft.AspNetCore.Razor.Design": {
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[2.2.0, )"
+            },
+            "Microsoft.Extensions.DependencyInjection.Abstractions": {
+              "target": "Package",
+              "version": "[3.0.0, )"
+            },
+            "Microsoft.NETCore.App": {
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[2.2.0, )",
+              "autoReferenced": true
+            },
+            "Microsoft.VisualStudio.Web.CodeGeneration.Design": {
+              "target": "Package",
+              "version": "[2.2.4, )"
+            }
+          },
+          "imports": [
+            "net461"
+          ],
+          "assetTargetFallback": true,
+          "warn": true
+        }
+      }
+    },
+    "C:\\Work\\Banch-Ionic\\BookStore.BLL\\BookStore.BLL.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Work\\Banch-Ionic\\BookStore.BLL\\BookStore.BLL.csproj",
+        "projectName": "BookStore.BLL",
+        "projectPath": "C:\\Work\\Banch-Ionic\\BookStore.BLL\\BookStore.BLL.csproj",
+        "packagesPath": "C:\\Users\\Anuitex\\.nuget\\packages\\",
+        "outputPath": "C:\\Work\\Banch-Ionic\\BookStore.BLL\\obj\\",
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+        ],
+        "configFilePaths": [
+          "C:\\Users\\Anuitex\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "netcoreapp2.2"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "netcoreapp2.2": {
+            "projectReferences": {
+              "C:\\Work\\Banch-Ionic\\BookStore.DAL\\BookStore.DAL.csproj": {
+                "projectPath": "C:\\Work\\Banch-Ionic\\BookStore.DAL\\BookStore.DAL.csproj"
+              },
+              "C:\\Work\\Banch-Ionic\\BookStore.ViewModelsLayer\\BookStore.ViewModelsLayer.csproj": {
+                "projectPath": "C:\\Work\\Banch-Ionic\\BookStore.ViewModelsLayer\\BookStore.ViewModelsLayer.csproj"
+              },
+              "C:\\Work\\Banch-Ionic\\EntitiesLayer\\EntitiesLayer.csproj": {
+                "projectPath": "C:\\Work\\Banch-Ionic\\EntitiesLayer\\EntitiesLayer.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "netcoreapp2.2": {
+          "dependencies": {
+            "AutoMapper": {
+              "target": "Package",
+              "version": "[6.2.2, )"
+            },
+            "AutoMapper.Extensions.Microsoft.DependencyInjection": {
+              "target": "Package",
+              "version": "[3.2.0, )"
+            },
+            "Dropbox.Api": {
+              "target": "Package",
+              "version": "[4.9.4, )"
+            },
+            "Microsoft.NETCore.App": {
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[2.2.0, )",
+              "autoReferenced": true
+            }
+          },
+          "imports": [
+            "net461"
+          ],
+          "assetTargetFallback": true,
+          "warn": true
+        }
+      }
+    },
+    "C:\\Work\\Banch-Ionic\\BookStore.DAL\\BookStore.DAL.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Work\\Banch-Ionic\\BookStore.DAL\\BookStore.DAL.csproj",
+        "projectName": "BookStore.DAL",
+        "projectPath": "C:\\Work\\Banch-Ionic\\BookStore.DAL\\BookStore.DAL.csproj",
+        "packagesPath": "C:\\Users\\Anuitex\\.nuget\\packages\\",
+        "outputPath": "C:\\Work\\Banch-Ionic\\BookStore.DAL\\obj\\",
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+        ],
+        "configFilePaths": [
+          "C:\\Users\\Anuitex\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "netcoreapp2.2"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "netcoreapp2.2": {
+            "projectReferences": {
+              "C:\\Work\\Banch-Ionic\\EntitiesLayer\\EntitiesLayer.csproj": {
+                "projectPath": "C:\\Work\\Banch-Ionic\\EntitiesLayer\\EntitiesLayer.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "netcoreapp2.2": {
+          "dependencies": {
+            "Microsoft.EntityFrameworkCore": {
+              "target": "Package",
+              "version": "[2.2.6, )"
+            },
+            "Microsoft.EntityFrameworkCore.SqlServer": {
+              "target": "Package",
+              "version": "[2.2.6, )"
+            },
+            "Microsoft.EntityFrameworkCore.Tools": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[2.2.6, )"
+            },
+            "Microsoft.NETCore.App": {
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[2.2.0, )",
+              "autoReferenced": true
+            }
+          },
+          "imports": [
+            "net461"
+          ],
+          "assetTargetFallback": true,
+          "warn": true
+        }
+      }
+    },
+    "C:\\Work\\Banch-Ionic\\BookStore.Shared\\BookStore.Shared.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Work\\Banch-Ionic\\BookStore.Shared\\BookStore.Shared.csproj",
+        "projectName": "BookStore.Shared",
+        "projectPath": "C:\\Work\\Banch-Ionic\\BookStore.Shared\\BookStore.Shared.csproj",
+        "packagesPath": "C:\\Users\\Anuitex\\.nuget\\packages\\",
+        "outputPath": "C:\\Work\\Banch-Ionic\\BookStore.Shared\\obj\\",
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+        ],
+        "configFilePaths": [
+          "C:\\Users\\Anuitex\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "netcoreapp2.2"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "netcoreapp2.2": {
             "projectReferences": {}
           }
         },
@@ -41,17 +268,118 @@
       "frameworks": {
         "netcoreapp2.2": {
           "dependencies": {
-            "Microsoft.AspNetCore.App": {
+            "Microsoft.NETCore.App": {
               "suppressParent": "All",
               "target": "Package",
               "version": "[2.2.0, )",
               "autoReferenced": true
-            },
-            "Microsoft.AspNetCore.Razor.Design": {
+            }
+          },
+          "imports": [
+            "net461"
+          ],
+          "assetTargetFallback": true,
+          "warn": true
+        }
+      }
+    },
+    "C:\\Work\\Banch-Ionic\\BookStore.ViewModelsLayer\\BookStore.ViewModelsLayer.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Work\\Banch-Ionic\\BookStore.ViewModelsLayer\\BookStore.ViewModelsLayer.csproj",
+        "projectName": "BookStore.ViewModelsLayer",
+        "projectPath": "C:\\Work\\Banch-Ionic\\BookStore.ViewModelsLayer\\BookStore.ViewModelsLayer.csproj",
+        "packagesPath": "C:\\Users\\Anuitex\\.nuget\\packages\\",
+        "outputPath": "C:\\Work\\Banch-Ionic\\BookStore.ViewModelsLayer\\obj\\",
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+        ],
+        "configFilePaths": [
+          "C:\\Users\\Anuitex\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "netcoreapp2.2"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "netcoreapp2.2": {
+            "projectReferences": {
+              "C:\\Work\\Banch-Ionic\\BookStore.Shared\\BookStore.Shared.csproj": {
+                "projectPath": "C:\\Work\\Banch-Ionic\\BookStore.Shared\\BookStore.Shared.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "netcoreapp2.2": {
+          "dependencies": {
+            "Microsoft.NETCore.App": {
               "suppressParent": "All",
               "target": "Package",
-              "version": "[2.2.0, )"
-            },
+              "version": "[2.2.0, )",
+              "autoReferenced": true
+            }
+          },
+          "imports": [
+            "net461"
+          ],
+          "assetTargetFallback": true,
+          "warn": true
+        }
+      }
+    },
+    "C:\\Work\\Banch-Ionic\\EntitiesLayer\\EntitiesLayer.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Work\\Banch-Ionic\\EntitiesLayer\\EntitiesLayer.csproj",
+        "projectName": "BookStore.EL",
+        "projectPath": "C:\\Work\\Banch-Ionic\\EntitiesLayer\\EntitiesLayer.csproj",
+        "packagesPath": "C:\\Users\\Anuitex\\.nuget\\packages\\",
+        "outputPath": "C:\\Work\\Banch-Ionic\\EntitiesLayer\\obj\\",
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+        ],
+        "configFilePaths": [
+          "C:\\Users\\Anuitex\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "netcoreapp2.2"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "netcoreapp2.2": {
+            "projectReferences": {
+              "C:\\Work\\Banch-Ionic\\BookStore.Shared\\BookStore.Shared.csproj": {
+                "projectPath": "C:\\Work\\Banch-Ionic\\BookStore.Shared\\BookStore.Shared.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "netcoreapp2.2": {
+          "dependencies": {
             "Microsoft.NETCore.App": {
               "suppressParent": "All",
               "target": "Package",

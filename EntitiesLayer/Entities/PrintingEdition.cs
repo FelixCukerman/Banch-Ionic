@@ -1,5 +1,6 @@
-﻿using EntitiesLayer.Abstractions;
-using EntitiesLayer.Enums;
+﻿using BookStore.Shared.Enums;
+using EntitiesLayer.Abstractions;
+using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 
 namespace EntitiesLayer.Entities

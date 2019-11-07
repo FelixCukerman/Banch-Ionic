@@ -1,4 +1,5 @@
 ﻿using EntitiesLayer.Abstractions;
+using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 
 namespace EntitiesLayer.Entities

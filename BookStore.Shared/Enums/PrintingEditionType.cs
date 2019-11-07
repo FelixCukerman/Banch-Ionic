@@ -1,4 +1,4 @@
-﻿namespace EntitiesLayer.Enums
+﻿namespace BookStore.Shared.Enums
 {
     public enum PrintingEditionType
     {
