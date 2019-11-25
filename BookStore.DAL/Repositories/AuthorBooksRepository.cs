@@ -19,5 +19,12 @@ namespace BookStore.DAL.Repositories
 
             return authorBooks;
         }
+
+        public async Task<List<AuthorBooks>> GetByBooksId(int bookId)
+        {
+            List<AuthorBooks> authorBooks = await _data.AuthorBooks.Where(item => item.PrintingEditionId == bookId).ToListAsync();
+
+            return authorBooks;
+        }
     }
 }

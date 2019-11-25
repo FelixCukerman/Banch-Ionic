@@ -10,10 +10,6 @@ namespace BookStore.DAL
             Database.EnsureCreated();
         }
 
-        //protected override void OnModelCreating(ModelBuilder modelBuilder)
-        //{
-        //}
-
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             optionsBuilder.UseSqlServer("Server=(localdb)\\mssqllocaldb;Database=bookstore;Trusted_Connection=True;");

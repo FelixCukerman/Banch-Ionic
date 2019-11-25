@@ -2,6 +2,8 @@
 using System.Threading.Tasks;
 using BookStore.BLL.Interfaces;
 using BookStore.ViewModelsLayer.ViewModels.PrintingEditionViewModels;
+using BookStore.ViewModelsLayer.ViewModels.PrintingEditionViewModels.Request;
+using BookStore.ViewModelsLayer.ViewModels.PrintingEditionViewModels.Response.Base;
 using Microsoft.AspNetCore.Mvc;
 
 namespace BookStore.API.Controllers
@@ -17,11 +19,20 @@ namespace BookStore.API.Controllers
             _printingEditionService = printingEditionService;
         }
 
-        [HttpGet("{index}/{count}")]
-        public async Task<ResponsePrintingEditionPreviewViewModel> Get(int index, int count)
+        [HttpPost("getbyfilter")]
+        public async Task<ResponsePrintingEditionPreviewViewModel> GetBooks([FromBody]RequestGetPrintingEditionViewModel requestModel)
         {
-            ResponsePrintingEditionPreviewViewModel books = await _printingEditionService.GetBooks(index, count);
+            ResponsePrintingEditionPreviewViewModel books = await _printingEditionService.GetBooks(requestModel);
+
             return books;
+        }
+
+        [HttpGet("{id}")]
+        public async Task<BaseResponsePrintingEditionViewModelItem> GetBooks(int id)
+        {
+            BaseResponsePrintingEditionViewModelItem book = await _printingEditionService.GetBook(id);
+
+            return book;
         }
     }
 }

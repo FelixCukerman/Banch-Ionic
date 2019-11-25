@@ -17,7 +17,7 @@ namespace EntitiesLayer.Entities
         [Required]
         public string Status { get; set; }
         [Required]
-        public string Currency { get; set; }
+        public CurrencyType Currency { get; set; }
         [Required]
         public PrintingEditionType Type { get; set; }
     }
