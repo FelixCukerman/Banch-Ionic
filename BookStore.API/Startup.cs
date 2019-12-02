@@ -1,4 +1,5 @@
 ﻿using AutoMapper;
+using BookStore.BLL.Configurations;
 using BookStore.BLL.Interfaces;
 using BookStore.BLL.Providers;
 using BookStore.BLL.Services;
@@ -13,6 +14,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using System;
 
 namespace BookStore.API
 {
@@ -42,6 +44,10 @@ namespace BookStore.API
         }
         public void ConfigureServices(IServiceCollection services)
         {
+            services.InjectDataBase(Configuration);
+            services.InjectApplicationIdentity(Configuration);
+            services.InjectDependencies(Configuration);
+
             services.AddCors(options =>
             {
                 options.AddPolicy(MyAllowSpecificOrigins,
@@ -54,19 +60,12 @@ namespace BookStore.API
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
 
             AddApplicationConfiguration(services);
-
-            services.AddAutoMapper();
-            services.AddDbContext<StoreContext>(options => options.UseSqlServer("Server=(localdb)\\mssqllocaldb;Database=bookstore;Trusted_Connection=True;"));
-
-            services.AddTransient<IPrintingEditionRepository, PrintingEditionRepository>();
-            services.AddTransient<IAuthorBooksRepository, AuthorBooksRepository>();
-            services.AddTransient<IAuthorRepository, AuthorRepository>();
-            services.AddTransient<IPrintingEditionService, PrintingEditionService>();
-            services.AddTransient<IDropBoxManager, DropBoxManager>();
         }
 
-        public void Configure(IApplicationBuilder app, IHostingEnvironment env)
+        public void Configure(IApplicationBuilder app, IHostingEnvironment env, IServiceProvider serviceProvider)
         {
+            app.UseDataBase(serviceProvider);
+
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();

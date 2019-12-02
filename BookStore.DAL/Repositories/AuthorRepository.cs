@@ -19,5 +19,12 @@ namespace BookStore.DAL.Repositories
 
             return authors;
         }
+        
+        public async Task<List<Author>> GetAuthorsByNames(List<string> authorsNames)
+        {
+            List<Author> authors = await _data.Authors.Where(author => authorsNames.Contains(author.Name)).ToListAsync();
+
+            return authors;
+        }
     }
 }

@@ -1,9 +1,7 @@
-﻿using System.Collections.Generic;
-using System.Threading.Tasks;
+﻿using System.Threading.Tasks;
 using BookStore.BLL.Interfaces;
-using BookStore.ViewModelsLayer.ViewModels.PrintingEditionViewModels;
-using BookStore.ViewModelsLayer.ViewModels.PrintingEditionViewModels.Request;
-using BookStore.ViewModelsLayer.ViewModels.PrintingEditionViewModels.Response.Base;
+using BookStore.ViewModelsLayer.ViewModels.BookViewModels;
+using BookStore.ViewModelsLayer.ViewModels.BookViewModels.Request;
 using Microsoft.AspNetCore.Mvc;
 
 namespace BookStore.API.Controllers
@@ -12,25 +10,33 @@ namespace BookStore.API.Controllers
     [ApiController]
     public class CatalogController : ControllerBase
     {
-        private readonly IPrintingEditionService _printingEditionService;
+        private readonly IBookService _bookService;
 
-        public CatalogController(IPrintingEditionService printingEditionService)
+        public CatalogController(IBookService bookService)
         {
-            _printingEditionService = printingEditionService;
+            _bookService = bookService;
+        }
+
+        [HttpPost("createbook")]
+        public async Task<IActionResult> CreateBook([FromBody]RequestCreateBookViewModel requestModel)
+        {
+            await _bookService.CreateBook(requestModel);
+
+            return Ok();
         }
 
         [HttpPost("getbyfilter")]
-        public async Task<ResponsePrintingEditionPreviewViewModel> GetBooks([FromBody]RequestGetPrintingEditionViewModel requestModel)
+        public async Task<ResponseBookPreviewViewModel> GetBooks([FromBody]RequestGetBookViewModel requestModel)
         {
-            ResponsePrintingEditionPreviewViewModel books = await _printingEditionService.GetBooks(requestModel);
+            ResponseBookPreviewViewModel books = await _bookService.GetBooks(requestModel);
 
             return books;
         }
 
         [HttpGet("{id}")]
-        public async Task<BaseResponsePrintingEditionViewModelItem> GetBooks(int id)
+        public async Task<BookDetailsViewModelItem> GetBook(int id)
         {
-            BaseResponsePrintingEditionViewModelItem book = await _printingEditionService.GetBook(id);
+            BookDetailsViewModelItem book = await _bookService.GetBook(id);
 
             return book;
         }

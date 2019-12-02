@@ -1,4 +1,5 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using System;
+using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
 namespace EntitiesLayer.Interfaces
@@ -8,5 +9,6 @@ namespace EntitiesLayer.Interfaces
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         [Key]
         int Id { get; set; }
+        DateTime CreationDateTimeUTC { get; set; }
     }
 }

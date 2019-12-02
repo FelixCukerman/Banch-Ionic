@@ -1,8 +1,8 @@
 ﻿using AutoMapper;
 using BookStore.Shared.RequestModels;
-using BookStore.ViewModelsLayer.ViewModels.PrintingEditionViewModels;
-using BookStore.ViewModelsLayer.ViewModels.PrintingEditionViewModels.Request;
-using BookStore.ViewModelsLayer.ViewModels.PrintingEditionViewModels.Response.Base;
+using BookStore.ViewModelsLayer.ViewModels.BookViewModels;
+using BookStore.ViewModelsLayer.ViewModels.BookViewModels.Request;
+using BookStore.ViewModelsLayer.ViewModels.BookViewModels.Response.Base;
 using EntitiesLayer.Entities;
 
 namespace BookStore.BLL.Providers
@@ -11,10 +11,15 @@ namespace BookStore.BLL.Providers
     {
         public MapperProfile() : base()
         {
-            CreateMap<PrintingEdition, PrintingEditionDetailsViewModelItem>();
-            CreateMap<PrintingEdition, BaseResponsePrintingEditionViewModelItem>();
+            CreateMap<Book, BookDetailsViewModelItem>().ForMember(destination => destination.Image, opt => opt.Ignore())
+                                                                             .ForMember(destination => destination.Authors, opt => opt.Ignore());
 
-            CreateMap<RequestGetBooksModel, RequestGetPrintingEditionViewModel>();
+            CreateMap<Book, BaseBookViewModelItem>().ForMember(destination => destination.Image, opt => opt.Ignore())
+                                                                                  .ForMember(destination => destination.Authors, opt => opt.Ignore());
+
+            CreateMap<RequestGetBooksModel, RequestGetBookViewModel>();
+
+            CreateMap<RequestCreateBookViewModel, Book>();
         }
     }
 }

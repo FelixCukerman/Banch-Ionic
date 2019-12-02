@@ -471,7 +471,7 @@
           "lib/netstandard2.0/Microsoft.AspNetCore.Connections.Abstractions.dll": {}
         }
       },
-      "Microsoft.AspNetCore.CookiePolicy/2.2.0": {
+      "Microsoft.AspNetCore.CookiePolicy/2.2.8": {
         "type": "package",
         "dependencies": {
           "Microsoft.AspNetCore.Http": "2.2.0",
@@ -699,7 +699,7 @@
           "lib/netstandard2.0/Microsoft.AspNetCore.Html.Abstractions.dll": {}
         }
       },
-      "Microsoft.AspNetCore.Http/2.2.0": {
+      "Microsoft.AspNetCore.Http/2.2.2": {
         "type": "package",
         "dependencies": {
           "Microsoft.AspNetCore.Http.Abstractions": "2.2.0",
@@ -4830,7 +4830,12 @@
           "BookStore.DAL": "1.0.0",
           "BookStore.EL": "1.0.0",
           "BookStore.ViewModelsLayer": "1.0.0",
-          "Dropbox.Api": "4.9.4"
+          "Dropbox.Api": "4.9.4",
+          "Microsoft.AspNetCore.CookiePolicy": "2.2.8",
+          "Microsoft.AspNetCore.Http": "2.2.2",
+          "Microsoft.AspNetCore.Http.Abstractions": "2.2.0",
+          "Microsoft.AspNetCore.Identity": "2.2.0",
+          "Microsoft.AspNetCore.Identity.EntityFrameworkCore": "2.2.0"
         },
         "compile": {
           "bin/placeholder/BookStore.BLL.dll": {}
@@ -4844,6 +4849,8 @@
         "framework": ".NETCoreApp,Version=v2.2",
         "dependencies": {
           "BookStore.EL": "1.0.0",
+          "Microsoft.AspNetCore.Identity": "2.2.0",
+          "Microsoft.AspNetCore.Identity.EntityFrameworkCore": "2.2.0",
           "Microsoft.EntityFrameworkCore": "2.2.6",
           "Microsoft.EntityFrameworkCore.SqlServer": "2.2.6"
         },
@@ -4858,7 +4865,9 @@
         "type": "project",
         "framework": ".NETCoreApp,Version=v2.2",
         "dependencies": {
-          "BookStore.Shared": "1.0.0"
+          "BookStore.Shared": "1.0.0",
+          "Microsoft.AspNetCore.Identity": "2.2.0",
+          "Microsoft.AspNetCore.Identity.EntityFrameworkCore": "2.2.0"
         },
         "compile": {
           "bin/placeholder/BookStore.EL.dll": {}
@@ -4870,6 +4879,9 @@
       "BookStore.Shared/1.0.0": {
         "type": "project",
         "framework": ".NETCoreApp,Version=v2.2",
+        "dependencies": {
+          "Microsoft.AspNetCore.Http": "2.2.2"
+        },
         "compile": {
           "bin/placeholder/BookStore.Shared.dll": {}
         },
@@ -4881,7 +4893,8 @@
         "type": "project",
         "framework": ".NETCoreApp,Version=v2.2",
         "dependencies": {
-          "BookStore.Shared": "1.0.0"
+          "BookStore.Shared": "1.0.0",
+          "Microsoft.AspNetCore.Http": "2.2.2"
         },
         "compile": {
           "bin/placeholder/BookStore.ViewModelsLayer.dll": {}
@@ -5194,16 +5207,16 @@
         "microsoft.aspnetcore.connections.abstractions.nuspec"
       ]
     },
-    "Microsoft.AspNetCore.CookiePolicy/2.2.0": {
-      "sha512": "Kn9CvhNsxRup/5SJfD4/YP3AbFwLJX8u3tKKyQszjUIvjE7M6lU93W44zlqBxltS94gTdLmo2ixPWDNeZthi1w==",
+    "Microsoft.AspNetCore.CookiePolicy/2.2.8": {
+      "sha512": "71BSJnZquxKXyqvC8CRPVZz+WqIxpzwNZWPMAxDdINWAMAXjXFi53bIiVW2+uiSypyIavECkt1ty/V12Yc1vnw==",
       "type": "package",
-      "path": "microsoft.aspnetcore.cookiepolicy/2.2.0",
+      "path": "microsoft.aspnetcore.cookiepolicy/2.2.8",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
         "lib/netstandard2.0/Microsoft.AspNetCore.CookiePolicy.dll",
         "lib/netstandard2.0/Microsoft.AspNetCore.CookiePolicy.xml",
-        "microsoft.aspnetcore.cookiepolicy.2.2.0.nupkg.sha512",
+        "microsoft.aspnetcore.cookiepolicy.2.2.8.nupkg.sha512",
         "microsoft.aspnetcore.cookiepolicy.nuspec"
       ]
     },
@@ -5404,16 +5417,16 @@
         "microsoft.aspnetcore.html.abstractions.nuspec"
       ]
     },
-    "Microsoft.AspNetCore.Http/2.2.0": {
-      "sha512": "Cn7ILZSQikKnJb4lhEfVxxk+CsQ36ZxVzOrzDUmqGOp9BJP3LqVYYTo/2vGgQlSo3GD4R8fDfAflX8s9vXlz/g==",
+    "Microsoft.AspNetCore.Http/2.2.2": {
+      "sha512": "BAibpoItxI5puk7YJbIGj95arZueM8B8M5xT1fXBn3hb3L2G3ucrZcYXv1gXdaroLbntUs8qeV8iuBrpjQsrKw==",
       "type": "package",
-      "path": "microsoft.aspnetcore.http/2.2.0",
+      "path": "microsoft.aspnetcore.http/2.2.2",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
         "lib/netstandard2.0/Microsoft.AspNetCore.Http.dll",
         "lib/netstandard2.0/Microsoft.AspNetCore.Http.xml",
-        "microsoft.aspnetcore.http.2.2.0.nupkg.sha512",
+        "microsoft.aspnetcore.http.2.2.2.nupkg.sha512",
         "microsoft.aspnetcore.http.nuspec"
       ]
     },
@@ -13321,6 +13334,7 @@
       "AutoMapper.Extensions.Microsoft.DependencyInjection >= 3.2.0",
       "BookStore.BLL >= 1.0.0",
       "Microsoft.AspNetCore.App >= 2.2.0",
+      "Microsoft.AspNetCore.Http >= 2.2.2",
       "Microsoft.AspNetCore.Razor.Design >= 2.2.0",
       "Microsoft.Extensions.DependencyInjection.Abstractions >= 3.0.0",
       "Microsoft.NETCore.App >= 2.2.0",
@@ -13385,6 +13399,10 @@
             "target": "Package",
             "version": "[2.2.0, )",
             "autoReferenced": true
+          },
+          "Microsoft.AspNetCore.Http": {
+            "target": "Package",
+            "version": "[2.2.2, )"
           },
           "Microsoft.AspNetCore.Razor.Design": {
             "suppressParent": "All",

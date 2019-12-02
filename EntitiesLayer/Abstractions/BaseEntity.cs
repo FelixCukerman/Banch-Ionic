@@ -1,4 +1,5 @@
 ﻿using EntitiesLayer.Interfaces;
+using System;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
@@ -9,5 +10,6 @@ namespace EntitiesLayer.Abstractions
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         [Key]
         public int Id { get; set; }
+        public DateTime CreationDateTimeUTC { get; set; }
     }
 }

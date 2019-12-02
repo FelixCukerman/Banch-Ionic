@@ -15,14 +15,14 @@ namespace BookStore.DAL.Repositories
 
         public async Task<List<AuthorBooks>> GetByBooksIds(List<int> bookIds)
         {
-            List<AuthorBooks> authorBooks = await _data.AuthorBooks.Where(item => bookIds.Contains((int)item.PrintingEditionId)).ToListAsync();
+            List<AuthorBooks> authorBooks = await _data.AuthorBooks.Where(item => bookIds.Contains((int)item.BookId)).ToListAsync();
 
             return authorBooks;
         }
 
         public async Task<List<AuthorBooks>> GetByBooksId(int bookId)
         {
-            List<AuthorBooks> authorBooks = await _data.AuthorBooks.Where(item => item.PrintingEditionId == bookId).ToListAsync();
+            List<AuthorBooks> authorBooks = await _data.AuthorBooks.Where(item => item.BookId == bookId).ToListAsync();
 
             return authorBooks;
         }

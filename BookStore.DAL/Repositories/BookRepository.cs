@@ -11,15 +11,15 @@ using System.Threading.Tasks;
 
 namespace BookStore.DAL.Repositories
 {
-    public class PrintingEditionRepository : GenericRepository<PrintingEdition>, IPrintingEditionRepository
+    public class BookRepository : GenericRepository<Book>, IBookRepository
     {
-        public PrintingEditionRepository(StoreContext data) : base(data)
+        public BookRepository(StoreContext data) : base(data)
         {
         }
 
         public async Task<int> GetTotalCount(BaseRequestGetBooksModel requestModel)
         {
-            Expression<Func<PrintingEdition, bool>> expression = null;
+            Expression<Func<Book, bool>> expression = null;
 
             int totalCount;
 
@@ -40,18 +40,18 @@ namespace BookStore.DAL.Repositories
                 expression = book => book.Price >= requestModel.MinPrice && book.Price <= requestModel.MaxPrice && requestModel.PrintingEditionTypes.Contains(book.Type);
             }
 
-            totalCount = await _data.PrintingEditions.Where(expression).CountAsync();
+            totalCount = await _data.Books.Where(expression).CountAsync();
 
             return totalCount;
         }
 
-        public async Task<List<PrintingEdition>> GetByFilters(RequestGetBooksModel requestModel)
+        public async Task<List<Book>> GetByFilters(RequestGetBooksModel requestModel)
         {
-            List<PrintingEdition> books;
+            List<Book> books;
 
             if (requestModel.PrintingEditionTypes.Count.Equals(default(int)))
             {
-                books = await _data.PrintingEditions
+                books = await _data.Books
                               .Where(book => book.Price >= requestModel.MinPrice && book.Price <= requestModel.MaxPrice)
                               .Skip(requestModel.Index)
                               .Take(requestModel.Count)
@@ -60,7 +60,7 @@ namespace BookStore.DAL.Repositories
                 return books;
             }
 
-            books = await _data.PrintingEditions
+            books = await _data.Books
                           .Where(book => book.Price >= requestModel.MinPrice && book.Price <= requestModel.MaxPrice && requestModel.PrintingEditionTypes
                           .Contains(book.Type))
                           .Skip(requestModel.Index)

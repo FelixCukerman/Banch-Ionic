@@ -1,10 +1,8 @@
 ﻿using BookStore.DAL.Interfaces;
 using EntitiesLayer.Interfaces;
 using Microsoft.EntityFrameworkCore;
-using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
 
 namespace BookStore.DAL.Repositories
@@ -21,6 +19,12 @@ namespace BookStore.DAL.Repositories
             _dbSet = _data.Set<T>();
         }
 
+        public async Task<int> GetCount()
+        {
+            int result = await _dbSet.CountAsync();
+
+            return result;
+        }
         public async Task<IEnumerable<T>> Get()
         {
             IEnumerable<T> result = await _dbSet.AsNoTracking().ToListAsync();

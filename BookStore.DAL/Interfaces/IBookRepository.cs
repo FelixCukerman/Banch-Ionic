@@ -7,9 +7,9 @@ using System.Threading.Tasks;
 
 namespace BookStore.DAL.Interfaces
 {
-    public interface IPrintingEditionRepository : IRepository<PrintingEdition>
+    public interface IBookRepository : IRepository<Book>
     {
         Task<int> GetTotalCount(BaseRequestGetBooksModel requestModel);
-        Task<List<PrintingEdition>> GetByFilters(RequestGetBooksModel requestModel);
+        Task<List<Book>> GetByFilters(RequestGetBooksModel requestModel);
     }
 }

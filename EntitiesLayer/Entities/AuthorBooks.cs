@@ -9,8 +9,8 @@ namespace EntitiesLayer.Entities
         public int? AuthorId { get; set; }
         [ForeignKey("AuthorId")]
         public Author Author { get; set; }
-        public int? PrintingEditionId { get; set; }
-        [ForeignKey("PrintingEditionId")]
-        public PrintingEdition PrintingEdition { get; set; }
+        public int? BookId { get; set; }
+        [ForeignKey("BookId")]
+        public Book Book { get; set; }
     }
 }
