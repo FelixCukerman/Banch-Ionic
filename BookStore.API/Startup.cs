@@ -1,17 +1,11 @@
-﻿using AutoMapper;
-using BookStore.BLL.Configurations;
-using BookStore.BLL.Interfaces;
-using BookStore.BLL.Providers;
-using BookStore.BLL.Services;
-using BookStore.DAL;
-using BookStore.DAL.Interfaces;
-using BookStore.DAL.Repositories;
+﻿using BookStore.BLL.Configurations;
 using BookStore.Shared.Configuration;
 using BookStore.Shared.Interfaces;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using System;
@@ -44,6 +38,13 @@ namespace BookStore.API
         }
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddAuthorization(auth =>
+            {
+                auth.AddPolicy("Bearer", new AuthorizationPolicyBuilder()
+                    .AddAuthenticationSchemes(JwtBearerDefaults.AuthenticationScheme‌​)
+                    .RequireAuthenticatedUser().Build());
+            });
+
             services.InjectDataBase(Configuration);
             services.InjectApplicationIdentity(Configuration);
             services.InjectDependencies(Configuration);
@@ -77,8 +78,9 @@ namespace BookStore.API
 
             app.UseCors(MyAllowSpecificOrigins);
 
-            app.UseHttpsRedirection();
             app.UseMvc();
+            app.UseCookiePolicy();
+            app.UseAuthentication();
         }
     }
 }

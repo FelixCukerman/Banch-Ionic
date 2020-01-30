@@ -11,5 +11,6 @@ namespace BookStore.DAL.Interfaces
     {
         Task<int> GetTotalCount(BaseRequestGetBooksModel requestModel);
         Task<List<Book>> GetByFilters(RequestGetBooksModel requestModel);
+        Task<List<Book>> GetBooks(RequestGetProductsModel model);
     }
 }

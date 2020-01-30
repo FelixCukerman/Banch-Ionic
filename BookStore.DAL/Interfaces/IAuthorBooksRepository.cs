@@ -8,5 +8,6 @@ namespace BookStore.DAL.Interfaces
     {
         Task<List<AuthorBooks>> GetByBooksIds(List<int> bookIds);
         Task<List<AuthorBooks>> GetByBooksId(int bookId);
+        Task RemoveByBookId(int bookId);
     }
 }

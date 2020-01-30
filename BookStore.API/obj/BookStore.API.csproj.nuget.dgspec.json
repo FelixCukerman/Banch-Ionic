@@ -59,9 +59,25 @@
               "version": "[2.2.0, )",
               "autoReferenced": true
             },
+            "Microsoft.AspNetCore.Authentication.JwtBearer": {
+              "target": "Package",
+              "version": "[2.2.0, )"
+            },
+            "Microsoft.AspNetCore.Authorization": {
+              "target": "Package",
+              "version": "[2.2.0, )"
+            },
+            "Microsoft.AspNetCore.Authorization.Policy": {
+              "target": "Package",
+              "version": "[2.2.0, )"
+            },
             "Microsoft.AspNetCore.Http": {
               "target": "Package",
               "version": "[2.2.2, )"
+            },
+            "Microsoft.AspNetCore.Http.Abstractions": {
+              "target": "Package",
+              "version": "[2.2.0, )"
             },
             "Microsoft.AspNetCore.Razor.Design": {
               "suppressParent": "All",
@@ -72,6 +88,10 @@
               "target": "Package",
               "version": "[3.0.0, )"
             },
+            "Microsoft.Extensions.Identity.Core": {
+              "target": "Package",
+              "version": "[2.2.0, )"
+            },
             "Microsoft.NETCore.App": {
               "suppressParent": "All",
               "target": "Package",
@@ -81,6 +101,10 @@
             "Microsoft.VisualStudio.Web.CodeGeneration.Design": {
               "target": "Package",
               "version": "[2.2.4, )"
+            },
+            "System.IdentityModel.Tokens.Jwt": {
+              "target": "Package",
+              "version": "[5.6.0, )"
             }
           },
           "imports": [
@@ -156,6 +180,10 @@
               "target": "Package",
               "version": "[4.9.4, )"
             },
+            "Microsoft.AspNetCore.Authentication.JwtBearer": {
+              "target": "Package",
+              "version": "[2.2.0, )"
+            },
             "Microsoft.AspNetCore.CookiePolicy": {
               "target": "Package",
               "version": "[2.2.8, )"
@@ -181,6 +209,10 @@
               "target": "Package",
               "version": "[2.2.0, )",
               "autoReferenced": true
+            },
+            "System.IdentityModel.Tokens.Jwt": {
+              "target": "Package",
+              "version": "[5.6.0, )"
             }
           },
           "imports": [

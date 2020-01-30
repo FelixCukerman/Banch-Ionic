@@ -2,6 +2,8 @@
 using BookStore.BLL.Interfaces;
 using BookStore.ViewModelsLayer.ViewModels.BookViewModels;
 using BookStore.ViewModelsLayer.ViewModels.BookViewModels.Request;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace BookStore.API.Controllers
@@ -17,6 +19,7 @@ namespace BookStore.API.Controllers
             _bookService = bookService;
         }
 
+        [Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme)]
         [HttpPost("createbook")]
         public async Task<IActionResult> CreateBook([FromBody]RequestCreateBookViewModel requestModel)
         {

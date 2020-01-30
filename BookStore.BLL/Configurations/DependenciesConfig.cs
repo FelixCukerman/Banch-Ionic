@@ -1,4 +1,5 @@
 ﻿using AutoMapper;
+using BookStore.BLL.Helpers;
 using BookStore.BLL.Interfaces;
 using BookStore.BLL.Providers;
 using BookStore.BLL.Services;
@@ -18,6 +19,9 @@ namespace BookStore.BLL.Configurations
             services.AddTransient<IAuthorRepository, AuthorRepository>();
             services.AddTransient<IBookService, BookService>();
             services.AddTransient<IDropBoxManager, DropBoxManager>();
+            services.AddTransient<IAuthHelper, AuthHelper>();
+            services.AddTransient<IAccountService, AccountService>();
+            services.AddTransient<IAdministrationManagementService, AdministrationManagementService>();
             services.AddAutoMapper();
         }
     }

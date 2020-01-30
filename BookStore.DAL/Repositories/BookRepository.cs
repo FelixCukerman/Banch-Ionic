@@ -25,7 +25,7 @@ namespace BookStore.DAL.Repositories
 
             bool filterHasPrintingEditionTypes = !requestModel.PrintingEditionTypes.Count.Equals(default(int));
 
-            if (requestModel.Equals(null))
+            if (requestModel == null)
             {
                 return default(int);
             }
@@ -37,7 +37,7 @@ namespace BookStore.DAL.Repositories
 
             if(filterHasPrintingEditionTypes)
             {
-                expression = book => book.Price >= requestModel.MinPrice && book.Price <= requestModel.MaxPrice && requestModel.PrintingEditionTypes.Contains(book.Type);
+                expression = book => book.Price >= requestModel.MinPrice && book.Price <= requestModel.MaxPrice && requestModel.PrintingEditionTypes.Contains(book.Category);
             }
 
             totalCount = await _data.Books.Where(expression).CountAsync();
@@ -47,25 +47,26 @@ namespace BookStore.DAL.Repositories
 
         public async Task<List<Book>> GetByFilters(RequestGetBooksModel requestModel)
         {
+            Expression<Func<Book, bool>> expression = null;
             List<Book> books;
 
-            if (requestModel.PrintingEditionTypes.Count.Equals(default(int)))
+            if (requestModel.PrintingEditionTypes.Count == default(int))
             {
-                books = await _data.Books
-                              .Where(book => book.Price >= requestModel.MinPrice && book.Price <= requestModel.MaxPrice)
-                              .Skip(requestModel.Index)
-                              .Take(requestModel.Count)
-                              .ToListAsync();
-
-                return books;
+                expression = book => book.Price >= requestModel.MinPrice && book.Price <= requestModel.MaxPrice;
+            }
+            if (requestModel.PrintingEditionTypes.Count != default(int))
+            {
+                expression = book => book.Price >= requestModel.MinPrice && book.Price <= requestModel.MaxPrice && requestModel.PrintingEditionTypes.Contains(book.Category);
             }
 
-            books = await _data.Books
-                          .Where(book => book.Price >= requestModel.MinPrice && book.Price <= requestModel.MaxPrice && requestModel.PrintingEditionTypes
-                          .Contains(book.Type))
-                          .Skip(requestModel.Index)
-                          .Take(requestModel.Count)
-                          .ToListAsync();
+            books = await _data.Books.Where(expression).Skip(requestModel.Index).Take(requestModel.Count).ToListAsync();
+
+            return books;
+        }
+
+        public async Task<List<Book>> GetBooks(RequestGetProductsModel model)
+        {
+            List<Book> books = await _data.Books.Skip(model.Index).Take(model.Count).ToListAsync();
 
             return books;
         }

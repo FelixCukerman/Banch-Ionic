@@ -1,14 +1,15 @@
-﻿using BookStore.DAL;
+﻿using BookStore.BLL.Helpers;
+using BookStore.DAL;
 using BookStore.EL.Entities;
-using Microsoft.AspNetCore.Authentication.Cookies;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using Microsoft.IdentityModel.Tokens;
 using System;
-using System.Collections.Generic;
-using System.Text;
+using System.IdentityModel.Tokens.Jwt;
 
 namespace BookStore.BLL.Configurations
 {
@@ -41,20 +42,26 @@ namespace BookStore.BLL.Configurations
                 options.MinimumSameSitePolicy = SameSiteMode.None;
             });
 
-            services.AddAuthentication(options =>
+            JwtSecurityTokenHandler.DefaultInboundClaimTypeMap.Clear();
+            services
+            .AddAuthentication(options =>
             {
-                options.DefaultScheme = CookieAuthenticationDefaults.AuthenticationScheme;
+                options.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
+                options.DefaultScheme = JwtBearerDefaults.AuthenticationScheme;
+                options.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
             })
-           .AddCookie(options =>
-           {
-               int expireHours = Convert.ToInt32(configuration["Authentication:Cookie:ExpireHours"]);
-               options.ExpireTimeSpan = TimeSpan.FromHours(expireHours);
-
-               options.AccessDeniedPath = configuration["Authentication:Cookie:AccessDeniedPath"];
-               options.SlidingExpiration = Convert.ToBoolean(configuration["Authentication:Cookie:SlidingExpiration"]);
-               options.LoginPath = configuration["Authentication:Cookie:LoginPath"];
-               options.LogoutPath = configuration["Authentication:Cookie:LogoutPath"];
-           });
+            .AddJwtBearer(cfg =>
+            {
+                cfg.RequireHttpsMetadata = false;
+                cfg.SaveToken = true;
+                cfg.TokenValidationParameters = new TokenValidationParameters
+                {
+                    ValidIssuer = AuthHelper.Issuer,
+                    ValidAudience = AuthHelper.Audience,
+                    IssuerSigningKey = new AuthHelper().GetSymmetricSecurityKey(),
+                    ClockSkew = TimeSpan.Zero
+                };
+            });
         }
     }
 }

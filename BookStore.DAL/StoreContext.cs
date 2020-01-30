@@ -10,6 +10,8 @@ namespace BookStore.DAL
         public DbSet<Book> Books { get; set; }
         public DbSet<Author> Authors { get; set; }
         public DbSet<AuthorBooks> AuthorBooks { get; set; }
+        public DbSet<Genre> Genres { get; set; }
+        public DbSet<BookGenre> BookGenres { get; set; }
         public StoreContext(DbContextOptions<StoreContext> options) : base(options)
         {
         }

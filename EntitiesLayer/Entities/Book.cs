@@ -8,6 +8,7 @@ namespace EntitiesLayer.Entities
     {
         [Required]
         public string Name { get; set; }
+        public string BriefDescription { get; set; }
         public string Description { get; set; }
         [Required]
         public double Price { get; set; }
@@ -18,6 +19,6 @@ namespace EntitiesLayer.Entities
         [Required]
         public CurrencyType Currency { get; set; }
         [Required]
-        public PrintingEditionType Type { get; set; }
+        public PrintingEditionType Category { get; set; }
     }
 }

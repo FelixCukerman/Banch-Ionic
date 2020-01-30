@@ -49,7 +49,7 @@ namespace BookStore.DAL
                 Name = $"Loren",
                 Price = 13,
                 Status = $"Ipsum",
-                Type = PrintingEditionType.Book,
+                Category = PrintingEditionType.Book,
             };
 
             await _bookRepository.Create(booksToCreate);

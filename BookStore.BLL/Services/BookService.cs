@@ -52,7 +52,7 @@ namespace BookStore.BLL.Services
             Book book = await _bookRepository.Get(id);
 
             List<AuthorBooks> authorBooks = await _authorBooksRepository.GetByBooksId(book.Id);
-            List<int> authorsIds = authorBooks.Where(item => item.AuthorId != null).Select(item => (int)item.AuthorId).Distinct().ToList();
+            List<int> authorsIds = authorBooks.Select(item => item.AuthorId).Distinct().ToList();
 
             List<Author> authors = await _authorRepository.GetAuthorsByIds(authorsIds);
 
@@ -120,7 +120,7 @@ namespace BookStore.BLL.Services
             List<int> booksIds = books.Select(book => book.Id).ToList();
 
             List<AuthorBooks> authorBooks = await _authorBooksRepository.GetByBooksIds(booksIds);
-            List<int> authorsIds = authorBooks.Where(item => item.AuthorId != null).Select(item => (int)item.AuthorId).Distinct().ToList();
+            List<int> authorsIds = authorBooks.Select(item => item.AuthorId).Distinct().ToList();
 
             List<Author> authors = await _authorRepository.GetAuthorsByIds(authorsIds);
 
@@ -155,7 +155,7 @@ namespace BookStore.BLL.Services
         private List<string> GetAuthorsByBook(Book book, List<AuthorBooks> authorBooks, List<Author> authors)
         {
             IEnumerable<AuthorBooks> currentAuthorBooks = authorBooks.Where(item => item.BookId == book.Id);
-            IEnumerable<int> currentAuthorsIds = currentAuthorBooks.Select(item => (int)item.AuthorId);
+            IEnumerable<int> currentAuthorsIds = currentAuthorBooks.Select(item => item.AuthorId);
 
             List<string> currentAuthors = authors.Where(author => currentAuthorsIds.Contains(author.Id)).Select(author => author.Name).ToList();
 

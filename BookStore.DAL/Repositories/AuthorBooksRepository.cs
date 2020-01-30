@@ -26,5 +26,14 @@ namespace BookStore.DAL.Repositories
 
             return authorBooks;
         }
+
+        public async Task RemoveByBookId(int bookId)
+        {
+            List<AuthorBooks> authorBooks = await _data.AuthorBooks.Where(item => item.BookId == bookId).ToListAsync();
+
+            _data.AuthorBooks.RemoveRange(authorBooks);
+
+            await _data.SaveChangesAsync();
+        }
     }
 }

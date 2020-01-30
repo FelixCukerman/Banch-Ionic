@@ -4,56 +4,22 @@ using BookStore.DAL;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace BookStore.DAL.Migrations
 {
     [DbContext(typeof(StoreContext))]
-    partial class StoreContextModelSnapshot : ModelSnapshot
+    [Migration("20200120111203_Add Status Entity To User")]
+    partial class AddStatusEntityToUser
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
                 .HasAnnotation("ProductVersion", "2.2.6-servicing-10079")
                 .HasAnnotation("Relational:MaxIdentifierLength", 128)
                 .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-            modelBuilder.Entity("BookStore.EL.Entities.BookGenre", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<int>("BookId");
-
-                    b.Property<DateTime>("CreationDateTimeUTC");
-
-                    b.Property<int>("GenreId");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("BookId");
-
-                    b.HasIndex("GenreId");
-
-                    b.ToTable("BookGenres");
-                });
-
-            modelBuilder.Entity("BookStore.EL.Entities.Genre", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<DateTime>("CreationDateTimeUTC");
-
-                    b.Property<string>("Name");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("Genres");
-                });
 
             modelBuilder.Entity("BookStore.EL.Entities.Role", b =>
                 {
@@ -160,9 +126,9 @@ namespace BookStore.DAL.Migrations
                         .ValueGeneratedOnAdd()
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<int>("AuthorId");
+                    b.Property<int?>("AuthorId");
 
-                    b.Property<int>("BookId");
+                    b.Property<int?>("BookId");
 
                     b.Property<DateTime>("CreationDateTimeUTC");
 
@@ -180,8 +146,6 @@ namespace BookStore.DAL.Migrations
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<string>("BriefDescription");
 
                     b.Property<int>("Category");
 
@@ -289,30 +253,15 @@ namespace BookStore.DAL.Migrations
                     b.ToTable("AspNetUserTokens");
                 });
 
-            modelBuilder.Entity("BookStore.EL.Entities.BookGenre", b =>
-                {
-                    b.HasOne("EntitiesLayer.Entities.Book", "Book")
-                        .WithMany()
-                        .HasForeignKey("BookId")
-                        .OnDelete(DeleteBehavior.Cascade);
-
-                    b.HasOne("BookStore.EL.Entities.Genre", "Genre")
-                        .WithMany()
-                        .HasForeignKey("GenreId")
-                        .OnDelete(DeleteBehavior.Cascade);
-                });
-
             modelBuilder.Entity("EntitiesLayer.Entities.AuthorBooks", b =>
                 {
                     b.HasOne("EntitiesLayer.Entities.Author", "Author")
                         .WithMany()
-                        .HasForeignKey("AuthorId")
-                        .OnDelete(DeleteBehavior.Cascade);
+                        .HasForeignKey("AuthorId");
 
                     b.HasOne("EntitiesLayer.Entities.Book", "Book")
                         .WithMany()
-                        .HasForeignKey("BookId")
-                        .OnDelete(DeleteBehavior.Cascade);
+                        .HasForeignKey("BookId");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<int>", b =>
